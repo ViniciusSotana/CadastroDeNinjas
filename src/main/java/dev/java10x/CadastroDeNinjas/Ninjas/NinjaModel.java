@@ -1,17 +1,28 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
-public class NinjaModel {
+public class  NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private Integer idade;
+
     private String email;
+
+    /*@ManyToOne Um ninja pra uma unica Missão*/
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") /*Foreign key*/
+    private MissoesModel missoes;
 
     public NinjaModel(String nome, Integer idade, String email) {
         this.nome = nome;
@@ -20,6 +31,14 @@ public class NinjaModel {
     }
 
     public NinjaModel() {
+    }
+
+    public MissoesModel getMissoes() {
+        return missoes;
+    }
+
+    public void setMissoes(MissoesModel missoes) {
+        this.missoes = missoes;
     }
 
     public Long getId() {
