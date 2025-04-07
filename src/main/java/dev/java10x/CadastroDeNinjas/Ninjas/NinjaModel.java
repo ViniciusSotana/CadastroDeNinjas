@@ -24,6 +24,9 @@ public class  NinjaModel {
     @Column(unique = true)
     private String email;
 
+    @Column(name = "Imagem_URL")
+    private String imgUrl;
+
     /*@ManyToOne Um ninja pra uma unica Missão*/
     @ManyToOne
     @JoinColumn(name = "missoes_id") /*Foreign key*/
