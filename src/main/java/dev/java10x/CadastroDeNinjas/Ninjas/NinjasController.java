@@ -18,12 +18,12 @@ public class NinjasController {
 
 
         //Find Ninjas by ID
-        @GetMapping("/todosID")
+        @GetMapping("/listarID")
         public String mostrarTodosOsNinjasPorId(){ return "Mostrar ninja por ID"; }
 
 
         //Listar Ninjas
-        @GetMapping("/todos")
+        @GetMapping("/listar")
         public String mostrarTodosOsNinjas(){ return "mostrar todos os ninjas"; }
 
 
