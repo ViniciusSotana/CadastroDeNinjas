@@ -22,11 +22,12 @@ public class NinjasController {
 
         // Add Ninja
         @PostMapping("/criar")
-        public String criarNinja(){ return "ninja criado"; }
+        public NinjaModel criarNinja(@RequestBody NinjaModel ninja){ return ninjaService.createNinja(ninja); }
 
 
         //Find Ninjas by ID
-        @GetMapping("/listarID/{id}")
+        @GetMapping("/listar" +
+                "/{id}")
         public NinjaModel listarNinjaById(@PathVariable Long id){ return ninjaService.listarNinjaById(id); }
 
 
